@@ -11,12 +11,15 @@ const aiRouter = require("./routes/aiChatting")
 const videoRouter = require("./routes/videoCreator");
 const cors = require('cors')
 
-// console.log("Hello")
+const allowedOrigins = [
+    "http://localhost:5174",
+    "https://elitecode-frontend.onrender.com"
+];
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true
-}))
+}));
 
 app.use(express.json());
 app.use(cookieParser());
